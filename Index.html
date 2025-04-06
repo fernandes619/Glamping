@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hesseys Glamping</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">Hesseys</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#accommodations">Accommodations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="carousel">
+      <img src="img/banner1.jpg" class="carousel-image active" alt="Mountain View 1" />
+      <img src="img/banner2.jpg" class="carousel-image" alt="Mountain View 2" />
+      <img src="img/banner3.jpg" class="carousel-image" alt="Mountain View 3" />
+
+      <div class="carousel-controls">
+        <button id="prevBtn">&#10094;</button>
+        <button id="nextBtn">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Hesseys</h2>
+      <p>Experience luxury camping in the heart of nature. Nestled in the serene mountains of Navarrés, Hesseys offers the perfect retreat for relaxation, adventure, and unforgettable memories.</p>
+    </div>
+  </section>
+
+  <section id="accommodations" class="section">
+    <div class="container">
+      <h2>Accommodations</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="img/cabin1.jpg" alt="Luxury Cabin" />
+          <h3>Luxury Cabin</h3>
+          <p>Mountain views and an outdoor bathtub for total relaxation.</p>
+        </div>
+        <div class="card">
+          <img src="img/tent1.jpg" alt="Safari Tent" />
+          <h3>Safari Tent</h3>
+          <p>Spacious tent with a king-size bed and a cozy porch.</p>
+        </div>
+        <div class="card">
+          <img src="img/dome1.jpg" alt="Geodesic Dome" />
+          <h3>Geodesic Dome</h3>
+          <p>Unique architecture with premium comfort and style.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <textarea rows="5" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div style="margin-top: 40px;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3135.552835943584!2d-0.6931342845921222!3d39.05994207954669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61aa7ddf9513e9%3A0x1184e0c1599e1bba!2sNavarr%C3%A9s%2C%20Valencia%2C%20Spain!5e0!3m2!1sen!2sus!4v1712400676944!5m2!1sen!2sus"
+          width="100%"
+          height="300"
+          style="border:0; border-radius: 12px; margin-top: 20px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Hesseys Glamping. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll(".carousel-image");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    nextBtn.addEventListener("click", nextImage);
+    prevBtn.addEventListener("click", prevImage);
+
+    setInterval(nextImage, 5000);
+
+    showImage(currentIndex);
+  </script>
+</body>
+</html>
